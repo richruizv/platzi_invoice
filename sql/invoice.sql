@@ -1,4 +1,4 @@
-CREATE DATABASE platzi_invoice;
+CREATE DATABASE platzi_invoice  DEFAULT CHARSET = utf8mb4 DEFAULT COLLATE = utf8mb4_unicode_ci;
 USE platzi_invoice;
 
 CREATE TABLE product (
@@ -7,7 +7,7 @@ CREATE TABLE product (
     product_price DECIMAL(6,2) NOT NULL,
     product_emoji VARCHAR(10),
     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-);
+)ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE utf8mb4_unicode_ci;
 
 CREATE TABLE promotion (
     promotion_id INT(10) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
