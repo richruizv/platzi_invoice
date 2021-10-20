@@ -9,4 +9,5 @@ require_once PROJECT_ROOT_PATH . "/controller/BaseController.php";
  
 // include the use model file
 require_once PROJECT_ROOT_PATH . "/model/ProductModel.php";
+require_once PROJECT_ROOT_PATH . "/model/PromotionModel.php";
 ?>

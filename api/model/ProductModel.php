@@ -1,7 +1,7 @@
 <?php
 require_once PROJECT_ROOT_PATH . "/model/Database.php";
 
-class UserModel extends Database
+class ProductModel extends Database
 {
     public function getProducts($limit)
     {

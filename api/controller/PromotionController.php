@@ -1,10 +1,10 @@
 <?php
-class ProductController extends BaseController
+class PromotionController extends BaseController
 {
     /**
      * "/user/list" Endpoint - Get list of users
      */
-    public function listAction()
+    public function getCodeAction()
     {
         $strErrorDesc = '';
         $requestMethod = $_SERVER["REQUEST_METHOD"];
@@ -12,15 +12,15 @@ class ProductController extends BaseController
  
         if (strtoupper($requestMethod) == 'GET') {
             try {
-                $productModel = new ProductModel();
- 
-                $intLimit = 10;
-                if (isset($arrQueryStringParams['limit']) && $arrQueryStringParams['limit']) {
-                    $intLimit = $arrQueryStringParams['limit'];
+                $promotionModel = new PromotionModel();
+                
+                if (isset($arrQueryStringParams['code']) && $arrQueryStringParams['code']) {
+                    $code = $arrQueryStringParams['code'];
+                }else{
+                    $code='';
                 }
- 
-                $arrUsers = $productModel->getProducts($intLimit);
-                $responseData = json_encode($arrUsers);
+                $arrPromotions= $promotionModel->getPromotion($code);
+                $responseData = json_encode($arrPromotions);
             } catch (Error $e) {
                 $strErrorDesc = $e->getMessage().'Something went wrong! Please contact support.';
                 $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
