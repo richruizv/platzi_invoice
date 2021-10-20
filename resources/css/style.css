@@ -1,0 +1,124 @@
+:root {
+    --bg-color: white;
+    --stock-bg-color: whitesmoke;
+    --badge-bg-color: green;
+    --badge-txt-color: white;
+    --default-action-color: blue;
+  }
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{    
+    font-size: 62.5%;
+    width: 100%;
+    background-color: var(--bg-color);
+}
+h1,h2,h3,h4,h5,h6,p,a,span,div{
+    font-family: 'Roboto', sans-serif;
+}
+
+.hidden{
+    display: none;
+}
+
+
+#stock {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.stock--product-card{
+    position: relative;
+    flex-basis: 15rem;
+    text-align: center;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: var(--stock-bg-color);
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.main-title{
+    font-size: 3rem;
+    margin: 1rem 0;
+    text-align: center;
+}
+.description{
+    font-size: 1.5rem;
+    text-align: center;
+}
+.stock--product-card>.product_name{
+    font-size: 1.5rem;
+    padding: 0.5rem 0;
+}
+
+.stock--product-card>.product_emoji{
+    font-size: 5rem;
+}
+.stock--product-card>.product_price{
+    font-size:2rem;
+    font-weight: 700;
+    
+}
+.stock--product-card>.stock--badge{
+    position: absolute;
+    right: -1rem;
+    top:-1rem;
+
+
+    color: var(--badge-txt-color);
+    background-color:var(--badge-bg-color);
+    font-size: 1.5rem;
+
+    width: 3rem;
+    height: 3rem;
+    padding-top: 0.5rem;
+    border-radius: 2rem;
+    
+}
+
+#btn--clear-all{
+    display: block;
+    color: var(--default-action-color);
+    background-color: transparent;
+    padding: 0.5rem 1rem;
+    border: 1px solid;
+    border-color: var(--secondary-color);
+    margin: 1.5rem auto 0 auto;
+}
+
+#draw_invoice{
+    text-align: center;
+    margin: 3rem auto;
+    width: 80%;
+    font-size: 1.5rem;
+}
+
+
+#draw_invoice td, #customers th {
+    border: 1px solid #ddd;
+    padding: 1rem;
+  }
+  
+#draw_invoice tr:nth-child(even){background-color: #f2f2f2;}
+
+#draw_invoice tr:hover {background-color: #ddd;}
+
+#draw_invoice th {
+text-align: left;
+background-color: #04AA6D;
+color: white;
+}
+
+#promo_code{
+    width: 100%;
+    height: 3rem;
+}
+
+#final_amount::before,  #draw_invoice>tbody>tr>td:nth-child(2)::before{
+    content: '$';
+}
