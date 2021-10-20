@@ -16,7 +16,7 @@ html{
     width: 100%;
     background-color: var(--bg-color);
 }
-h1,h2,h3,h4,h5,h6,p,a,span,div{
+*{
     font-family: 'Roboto', sans-serif;
 }
 
@@ -92,10 +92,13 @@ h1,h2,h3,h4,h5,h6,p,a,span,div{
 }
 
 #draw_invoice{
-    text-align: center;
     margin: 3rem auto;
     width: 80%;
     font-size: 1.5rem;
+}
+
+#draw_invoice tbody, #draw_invoice tr{
+    width: 100%;
 }
 
 
@@ -121,4 +124,9 @@ color: white;
 
 #final_amount::before,  #draw_invoice>tbody>tr>td:nth-child(2)::before{
     content: '$';
+}
+
+#promo_description{
+    margin-top: 1rem;
+    font-size: 1.5rem;
 }

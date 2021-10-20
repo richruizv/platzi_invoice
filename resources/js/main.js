@@ -1,24 +1,30 @@
 import { listProducts } from './services/product.js';
+import { getCode } from './services/promotion.js';
 
 var id = function( id ) { return document.getElementById( id ); };
-var products;
+let products;
+let discount = 0, final_amount = 0;
 
 function draw_invoice(){
     let html= '';
-    let final_amount = 0;
 
+    final_amount = 0;
+    
     products.forEach(function(element,index) {
         if(element.amount > 0){
-            html += '<tr><td width="60%">'+element.product_name+'</td><td width="20%">'+element.product_price+'</td><td width="20%">'+element.amount+'</td></tr>' 
+            html += '<tr><td style="width:90%">'+element.product_name+'</td><td >'+element.product_price+'</td><td >'+element.amount+'</td></tr>' 
             final_amount += (parseFloat(element.product_price) * parseFloat(element.amount))
         }
     });
-
+    id('draw_invoice').style.display = 'block'
     id('draw_body_invoice').innerHTML = html
-    id('final_amount').innerHTML = final_amount
 
+    update_final_amount();
 }
 
+function update_final_amount(){
+    id('final_amount').innerHTML = final_amount - final_amount*discount/100
+}
 function addProduct(e){
     let prod_id = this.getAttribute('rel-prod')
     let badge = id("badge_"+prod_id)
@@ -37,9 +43,28 @@ function addProduct(e){
     draw_invoice()
     
 }
+function getPromotion(){
+    let code = this.value
+    getCode(code).then( res =>{
+        
+        if(res.length == 0){
+            discount = 0;
+            id('promo--container').style.backgroundColor = '#f4d4d6'
+            id('promo_description').innerHTML ='Invalid code'
+        }else{
+            let promotion = res[0]
+            discount = promotion.discount
+            id('promo--container').style.backgroundColor = '#e5f4d5'
+            id('promo_description').innerHTML = promotion.promotion_description +' '+promotion.discount+'%'
+        }
+        update_final_amount();
+    },err =>{
+        console.log(err)
+    })
+}
 function init(){
     id('draw_body_invoice').innerHTML = ''
-
+    id('draw_invoice').style.display = 'none'
     listProducts().then( res =>{
         let html= '';
 
@@ -59,10 +84,11 @@ function init(){
     },error =>{
         console.log(error)
     });
-
 }
 
 document.getElementById("btn--clear-all").addEventListener('click', init, false);
+
+document.getElementById("promo_code").addEventListener('blur', getPromotion, false);
 
 init()
 

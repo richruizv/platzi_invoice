@@ -13,35 +13,35 @@
         <nav>
         </nav>
     </section>
-    <section>
+    <section >
         <h1 class="main-title">Invoice generator</h1>
         <p class="description">Tap on any product please</p>
         <button  id="btn--clear-all">Clear all</button>
         <div id="stock">
 
         </div>
-        <div>
-            <table id="draw_invoice">
-                <thead>
-                    <tr>
-                        <td colspan="3"><h4>Invoice</h4></td>
-                    </tr>
-                </thead>
-                <tbody id="draw_body_invoice">
-                </tbody>
-                <tfoot>
-                    <tr id="promo--container">
-                        <td>Promo code?</td>
-                        <td colspan="2"><input id="promo_code"></td>
-                    </tr>
-                    <tr>
-                        <td>Total amount:</td>
-                        <td colspan="2"><p id="final_amount"></p></td>
-                    </tr>
-                </tfoot>
-            </table>
-        </div>
-        
+        <table id="draw_invoice">
+            <thead>
+                <tr>
+                    <td colspan="3"><h4>Invoice</h4></td>
+                </tr>
+            </thead>
+            <tbody id="draw_body_invoice">
+            </tbody>
+            <tfoot>
+                <tr id="promo--container">
+                    <td>Promo code?</td>
+                    <td colspan="2"><input id="promo_code">
+                    <p id="promo_description"></p>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Total amount:</td>
+                    <td colspan="2"><p id="final_amount"></p></td>
+                </tr>
+            </tfoot>
+        </table>
+    
     </section>
     
     <script type="module" src="resources/js/main.js"></script>
