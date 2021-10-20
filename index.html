@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice generator</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="resources/css/style.css">
+</head>
+<body>
+    <section>
+        <nav>
+        </nav>
+    </section>
+    <section>
+        <h1 class="main-title">Invoice generator</h1>
+        <p class="description">Tap on any product please</p>
+        <button  id="btn--clear-all">Clear all</button>
+        <div id="stock">
+
+        </div>
+        <div>
+            <table id="draw_invoice">
+                <thead>
+                    <tr>
+                        <td colspan="3"><h4>Invoice</h4></td>
+                    </tr>
+                </thead>
+                <tbody id="draw_body_invoice">
+                </tbody>
+                <tfoot>
+                    <tr id="promo--container">
+                        <td>Promo code?</td>
+                        <td colspan="2"><input id="promo_code"></td>
+                    </tr>
+                    <tr>
+                        <td>Total amount:</td>
+                        <td colspan="2"><p id="final_amount"></p></td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        
+    </section>
+    
+    <script type="module" src="resources/js/main.js"></script>
+    
+</body>
+</html>
